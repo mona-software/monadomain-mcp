@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "monadomain": { "command": "npx", "args": ["-y", "monadomain-mcp"] }
+  }
+}
