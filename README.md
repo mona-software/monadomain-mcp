@@ -23,7 +23,7 @@ args = ["-y", "monadomain-mcp"]
 
 AI sẽ: `cloud_domain_search` (tra tên + giá VND đã VAT, không cần đăng nhập) → hỏi bạn xác nhận chính tả và duyệt tiền → `cloud_domain_reserve` giữ chỗ 30 phút, in QR VietQR cho bạn quét → bạn bấm `claim_url`, đăng nhập MONA Pass một bước (Google/GitHub/email, lần đầu tự tạo ví) → tên miền về tài khoản → `cloud_domain_attach` trỏ DNS + SSL vào app.
 
-- Đuôi bán ngay có giá: .vn .com.vn .net.vn .id.vn .io.vn .edu.vn .com .net .org .info .biz .io .ai .app .dev .shop .store .online .site .xyz .tech .cloud .vip .top .co .me .tv .asia .us .uk — còn 500+ đuôi khác báo giá khi mua.
+- Đuôi bán ngay có giá: .vn .com.vn .net.vn .id.vn .io.vn .edu.vn .com .net .org .info .biz .io .ai .app .dev .shop .store .online .site .xyz .tech .cloud .vip .top .co .me .tv .asia .us .uk — tổng 371 đuôi có giá trong catalog (`cloud_domain_tlds`).
 - .vn: AI điền bản khai, bạn xác thực chủ thể một lần theo luật VNNIC.
 - Tài liệu cho agent: https://monadomain.vn/AGENTS.md · https://monadomain.vn/llms.txt · REST không cần token: `GET https://api.monacloud.vn/api/domains/search?q=<tên>&tlds=vn,com`.
 

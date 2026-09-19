@@ -41,10 +41,13 @@
   "homepage": "https://monadomain.vn",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/themonagroup/monacloud-mcp.git"
+    "url": "git+https://github.com/themonagroup/monadomain-mcp.git"
   },
   "engines": {
     "node": ">=18"
   },
-  "mcpName": "vn.monadomain/monadomain-mcp"
+  "mcpName": "vn.monadomain/monadomain-mcp",
+  "bugs": {
+    "url": "https://github.com/themonagroup/monadomain-mcp/issues"
+  }
 }
