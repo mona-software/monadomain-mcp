@@ -1,0 +1,38 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "vn.monadomain/monadomain-mcp",
+  "description": "Buy .vn and international domains in VND from the terminal; search and reserve without an account",
+  "repository": {
+    "url": "https://github.com/themonagroup/monacloud-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://monadomain.vn",
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "monadomain-mcp",
+      "version": "0.1.1",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "-y",
+          "description": "npx auto-install"
+        }
+      ],
+      "environmentVariables": [
+        {
+          "name": "MONACLOUD_TOKEN",
+          "description": "Optional MONA Pass token; not needed to search or reserve. Run `monacloud-mcp login` to buy directly.",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
