@@ -1,36 +1,72 @@
 # monadomain-mcp
 
-MCP server cho AI agent **mua tên miền .vn và quốc tế ngay trong phiên code**, trả bằng VND. Đây là gói alias của [`monacloud-mcp`](https://www.npmjs.com/package/monacloud-mcp) (MONA Cloud, The MONA Group, Việt Nam): cùng server, cùng 21 tool `cloud_domain_*`, cùng tài khoản MONA Pass và ví VND.
+MCP server that lets AI agents search, reserve and buy `.vn` and international domains in VND. This package is an alias that runs [`monacloud-mcp`](https://github.com/mona-software/monacloud-mcp): same server, same `cloud_domain_*` tools, same MONA Pass account and VND wallet.
 
-## Cài 1 dòng
+The source for this alias is not public. Source code, issues and full documentation live in [mona-software/monacloud-mcp](https://github.com/mona-software/monacloud-mcp).
+
+## Install
+
+Published on npm as `monadomain-mcp` (also available under the alias name `monadomain`). Requires Node.js 20 or later.
+
+### Claude Code
 
 ```bash
-# Claude Code
 claude mcp add monadomain -- npx -y monadomain-mcp
+```
 
-# Codex (~/.codex/config.toml)
+### Codex (`~/.codex/config.toml`)
+
+```toml
 [mcp_servers.monadomain]
 command = "npx"
 args = ["-y", "monadomain-mcp"]
-
-# Cursor (.cursor/mcp.json)
-{ "mcpServers": { "monadomain": { "command": "npx", "args": ["-y", "monadomain-mcp"] } } }
 ```
 
-## Nói gì với AI
+### Cursor (`.cursor/mcp.json`)
 
-> Mua tên miền cho app này, ưu tiên .vn, duyệt tới 800.000đ.
+```json
+{
+  "mcpServers": {
+    "monadomain": { "command": "npx", "args": ["-y", "monadomain-mcp"] }
+  }
+}
+```
 
-AI sẽ: `cloud_domain_search` (tra tên + giá VND đã VAT, không cần đăng nhập) → hỏi bạn xác nhận chính tả và duyệt tiền → `cloud_domain_reserve` giữ chỗ 30 phút, in QR VietQR cho bạn quét → bạn bấm `claim_url`, đăng nhập MONA Pass một bước (Google/GitHub/email, lần đầu tự tạo ví) → tên miền về tài khoản → `cloud_domain_attach` trỏ DNS + SSL vào app.
+## Quick start
 
-- Đuôi bán ngay có giá: .vn .com.vn .net.vn .id.vn .io.vn .edu.vn .com .net .org .info .biz .io .ai .app .dev .shop .store .online .site .xyz .tech .cloud .vip .top .co .me .tv .asia .us .uk — tổng 371 đuôi có giá trong catalog (`cloud_domain_tlds`).
-- .vn: AI điền bản khai, bạn xác thực chủ thể một lần theo luật VNNIC.
-- Tài liệu cho agent: https://monadomain.vn/AGENTS.md · https://monadomain.vn/llms.txt · REST không cần token: `GET https://api.monacloud.vn/api/domains/search?q=<tên>&tlds=vn,com`.
+Ask your agent, for example: "Buy a domain for this app, prefer .vn."
 
-Vận hành bởi The MONA Group (mona.media · monacloud.vn), từ 2016, hơn 14.000 dự án. Tổng đài 1900 636 648 · info@themona.global.
+A typical flow:
 
----
+1. `cloud_domain_search` checks availability and returns prices in VND including VAT. No login needed.
+2. The agent confirms the spelling and the cost with you.
+3. Without an account, `cloud_domain_reserve` holds the name and returns a VietQR code plus a `claim_url`; you pay, open the link and sign in to MONA Pass to claim it. With an account, `cloud_domain_buy` pays from the wallet.
+4. `cloud_domain_attach` points DNS at your app and sets up SSL.
 
-**English:** MCP server that lets AI agents (Claude Code, Codex, Cursor, Gemini) search, reserve and buy `.vn` and international domains in VND from the terminal; guests can reserve before creating an account. Alias of `monacloud-mcp`.
+`.vn` domains require registrant details (`cloud_domain_registrant_set`) and a one-time owner verification (`cloud_domain_verify_start`).
 
-**MONA Domain thuộc bộ MONA Cloud của The MONA Group.**
+## Usage
+
+Domain tools include `cloud_domain_search`, `cloud_domain_suggest`, `cloud_domain_tlds`, `cloud_domain_reserve`, `cloud_domain_claim`, `cloud_domain_buy`, `cloud_domain_renew`, `cloud_domain_dns_list`/`_add`/`_update`/`_delete`, `cloud_domain_ns_set`, `cloud_domain_attach` and `cloud_domain_health`. Because the package runs the full `monacloud-mcp` server, all other MONA Cloud tools are available too.
+
+Sign in to buy directly from the wallet:
+
+```bash
+npx -y monadomain-mcp login
+```
+
+## Configuration
+
+| Variable | Purpose |
+|---|---|
+| `MONACLOUD_TOKEN` | Optional MONA Pass token; not needed to search or reserve |
+
+All other variables are documented in the [monacloud-mcp README](https://github.com/mona-software/monacloud-mcp#configuration).
+
+More information: [monadomain.vn](https://monadomain.vn).
+
+## License
+
+MIT
+
+**MONA Domain is part of MONA Cloud by The MONA Group.**
