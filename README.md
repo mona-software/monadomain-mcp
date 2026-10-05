@@ -32,3 +32,5 @@ Vận hành bởi The MONA Group (mona.media · monacloud.vn), từ 2016, hơn 1
 ---
 
 **English:** MCP server that lets AI agents (Claude Code, Codex, Cursor, Gemini) search, reserve and buy `.vn` and international domains in VND from the terminal; guests can reserve before creating an account. Alias of `monacloud-mcp`.
+
+**MONA Domain thuộc bộ MONA Cloud của The MONA Group.**

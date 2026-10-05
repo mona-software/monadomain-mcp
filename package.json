@@ -1,6 +1,6 @@
 {
   "name": "monadomain-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MCP server để AI agent (Claude Code, Codex, Cursor, Gemini) tra giá, giữ chỗ và mua tên miền .vn + quốc tế bằng VND ngay trong phiên code — gói alias của monacloud-mcp (MONA Domain, The MONA Group). / MCP for AI agents to search, reserve and buy .vn and international domains in VND from the terminal.",
   "license": "MIT",
   "type": "module",
@@ -12,7 +12,7 @@
     "README.md"
   ],
   "dependencies": {
-    "monacloud-mcp": "^0.10.9"
+    "monacloud-mcp": "^0.11.1"
   },
   "keywords": [
     "mcp",
@@ -41,13 +41,14 @@
   "homepage": "https://monadomain.vn",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/themonagroup/monadomain-mcp.git"
+    "url": "git+https://github.com/mona-software/monadomain-mcp.git"
   },
   "engines": {
     "node": ">=18"
   },
   "mcpName": "vn.monadomain/monadomain-mcp",
   "bugs": {
-    "url": "https://github.com/themonagroup/monadomain-mcp/issues"
-  }
+    "url": "https://github.com/mona-software/monadomain-mcp/issues"
+  },
+  "author": "MONA Software"
 }
